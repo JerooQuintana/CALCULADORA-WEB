@@ -56,3 +56,41 @@ body{
 #igual:hover{
     background-color: rgb(15, 204, 87);
 }
+/* BOTON   */
+.body-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(20, 52, 82);
+}
+/* Estilos para el botón circular */
+.boton-circular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50% ;
+    background-color: #2d91e2;
+    color: rgb(3, 27, 29);
+    font-size: 32px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.boton-circular:hover {
+    transform: scale(1.1);
+}
+/* Define una animación de expansión */
+@keyframes expandir {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(20);
+        opacity: 0;
+    }
+}

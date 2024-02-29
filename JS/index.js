@@ -45,3 +45,18 @@ botones.forEach(boton => {
       
    })
 })
+
+// BOTON PARA INGRESAR A LA CALCULADORA //
+
+function redireccionar() {
+   // Aplica la animación de expansión al botón
+   var boton = document.getElementById('botonEntrada');
+   boton.style.animation = "expandir 0.5s forwards";
+
+   // Espera a que la animación termine para redireccionar
+   setTimeout(function() {
+       window.location.href = 'file:///C:/Users/Punto%20Digital/Desktop/JeronimoQuintana/PRACTICA/CALCULADORA-JS/index.html'; // Cambia esto por la URL de tu calculadora
+   }, 500); // Ajusta este tiempo al de la duración de tu animación
+}
+// Añade el evento de clic al botón para iniciar la redirección y animación
+document.getElementById('botonEntrada').onclick = redireccionar;
