@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica  Web</title>
-    <link rel="stylesheet" href="/CSS/style.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
-    
-    <div class="calculadora">
+    <div id="contenedorBotonEntrada">
+    <button id="botonEntrada" class="boton-circular" > ingresar a la calculadora</button>
+    </div>
+    <div class="calculadora" style="display: none;">
         <div class="pantalla">0</div>
         <button id="c" class="btn">C</button>
         <button id="borrar" class="btn">←</button>
@@ -30,9 +31,13 @@
         <button id="igual" class="btn">=</button>
         <button id="cero" class="btn">0</button>
         <button  class="btn">.</button>
-
-
     </div>    
+
+    <div class="botonSalida" style="display: none;">
+        <button class="button-salida">
+            Salir
+        </button>
+    </div>
     <script src="./JS/index.js"></script>
 </body>
 </html>

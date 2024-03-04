@@ -1,18 +1,21 @@
-*
-{
-    margin:  0;
+/* Reseteo básico para remover margenes, padding y establecer box-sizing */
+* {
+    margin: 0;
     padding: 0;
-    margin:  0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-body{
+
+/* Estilo del cuerpo de la página */
+body {
     min-height: 100vh;
     background-color: rgb(12, 13, 29);
     display: grid;
     place-items: center;
 }
-.calculadora{
+
+/* Estilos de la calculadora */
+.calculadora {
     background-color: rgb(20, 52, 82);
     color: white;
     width: 350px;
@@ -21,9 +24,11 @@ body{
     border-radius: 1.5rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-   gap: .5rem; 
+    gap: .5rem;
 }
-.pantalla{
+
+/* Estilo de la pantalla de la calculadora */
+.pantalla {
     grid-column: 1 / -1;
     padding: 1.5rem;
     font-size: 2rem;
@@ -34,29 +39,39 @@ body{
     font-weight: 600;
     background-color: rgb(11, 22, 61);
 }
-.btn{
+
+/* Estilo de los botones de la calculadora */
+.btn {
     background-color: rgb(22, 153, 170);
-    color: rgb(255, 255, 255);
+    color: white;
     border-radius: 1rem;
-    padding: 1.5rem .5rem;
+    padding: 1.5rem 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-.btn:hover{
+
+/* Hover para los botones de la calculadora */
+.btn:hover {
     background-color: grey;
 }
-#cero{
+
+/* Estilo para el botón cero y el botón igual, ajustando el grid */
+#cero {
     grid-column: span 2;
 }
-#igual{
+
+#igual {
     grid-row: span 2;
     background-color: rgb(17, 85, 28);
 }
-#igual:hover{
+
+#igual:hover {
     background-color: rgb(15, 204, 87);
 }
-/* BOTON   */
+
+/* Estilos para el botón de ingresar a la calculadora */
 .body-boton {
     display: flex;
     justify-content: center;
@@ -65,32 +80,64 @@ body{
     margin: 0;
     background-color: rgb(20, 52, 82);
 }
-/* Estilos para el botón circular */
+
 .boton-circular {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-    border-radius: 50% ;
-    background-color: #2d91e2;
-    color: rgb(3, 27, 29);
-    font-size: 32px;
-    text-decoration: none;
-    border: none;
+    position: relative;
+    overflow: hidden;
+    background: black;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    border: none;
+    padding: 16px 32px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 40px;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(17, 66, 172, 0.7);
+    animation: glowing-border 5s linear infinite;
+    
 }
+
 .boton-circular:hover {
     transform: scale(1.1);
 }
-/* Define una animación de expansión */
-@keyframes expandir {
-    from {
-        transform: scale(1);
+
+.button-salida {
+    position: relative;
+    overflow: hidden;
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(17, 66, 172, 0.7);
+    animation: glowing-border 5s linear infinite;
+}
+
+@keyframes glowing-border {
+    0%, 100% {
+        box-shadow:
+            0 0 10px rgba(17, 66, 172, 0.7),
+            0 0 20px rgba(30, 108, 253, 0.7),
+            0 0 30px rgba(65, 92, 245, 0.7),
+            0 0 40px rgba(1, 13, 83, 0.7)
     }
-    to {
-        transform: scale(20);
-        opacity: 0;
+    25%, 75% {
+        box-shadow:
+            0 0 15px rgba(17, 66, 172, 1),
+            0 0 25px rgba(30, 108, 253, 1),
+            0 0 35px rgba(65, 92, 245, 1),
+            0 0 45px rgba(1, 13, 83, 1)
+    }
+    50% {
+        box-shadow:
+            0 0 20px rgba(17, 66, 172, 0.5),
+            0 0 30px rgba(30, 108, 253, 0.5),
+            0 0 40px rgba(65, 92, 245, 0.5),
+            0 0 50px rgba(1, 13, 83, 0.5)
     }
 }

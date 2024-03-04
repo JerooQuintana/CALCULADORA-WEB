@@ -1,3 +1,8 @@
+document.getElementById('botonEntrada').addEventListener('click', function() {
+   document.querySelector('.calculadora').style.display = 'grid'; // Muestra la calculadora
+   document.getElementById('contenedorBotonEntrada').style.display = 'none'; // Oculta el botón
+});
+
 const pantalla = document.querySelector(".pantalla");
 const botones = document.querySelectorAll(".btn");
 
@@ -45,18 +50,15 @@ botones.forEach(boton => {
       
    })
 })
+document.getElementById('botonEntrada').addEventListener('click', function() {
+   document.querySelector('.calculadora').style.display = 'grid'; // Muestra la calculadora
+   document.getElementById('contenedorBotonEntrada').style.display = 'none'; // Oculta el botón de entrada
+   document.querySelector('.botonSalida').style.display = 'block'; // Muestra el botón de salida
+});
 
-// BOTON PARA INGRESAR A LA CALCULADORA //
+document.querySelector('.button-salida').addEventListener('click', function() {
+   document.querySelector('.calculadora').style.display = 'none'; // Oculta la calculadora
+   document.getElementById('contenedorBotonEntrada').style.display = 'flex'; // Muestra el botón de entrada
+   document.querySelector('.botonSalida').style.display = 'none'; // Oculta el botón de salida
+});
 
-function redireccionar() {
-   // Aplica la animación de expansión al botón
-   var boton = document.getElementById('botonEntrada');
-   boton.style.animation = "expandir 0.5s forwards";
-
-   // Espera a que la animación termine para redireccionar
-   setTimeout(function() {
-       window.location.href = 'file:///C:/Users/Punto%20Digital/Desktop/JeronimoQuintana/PRACTICA/CALCULADORA-JS/index.html'; // Cambia esto por la URL de tu calculadora
-   }, 500); // Ajusta este tiempo al de la duración de tu animación
-}
-// Añade el evento de clic al botón para iniciar la redirección y animación
-document.getElementById('botonEntrada').onclick = redireccionar;
