@@ -62,3 +62,25 @@ document.querySelector('.button-salida').addEventListener('click', function() {
    document.querySelector('.botonSalida').style.display = 'none'; // Oculta el botón de salida
 });
 
+document.getElementById('botonEntrada').addEventListener('click', function() {
+   // Muestra la calculadora
+   document.querySelector('.calculadora').style.display = 'grid';
+   // Oculta el botón de entrada
+   document.getElementById('contenedorBotonEntrada').style.display = 'none';
+   // Muestra el botón de salida
+   document.querySelector('.botonSalida').style.display = 'block';
+   // Oculta los textos de h1 y h2
+   document.querySelector('.contenedor-textos').style.display = 'none';
+});
+
+document.querySelector('.button-salida').addEventListener('click', function() {
+   // Oculta la calculadora
+   document.querySelector('.calculadora').style.display = 'none';
+   // Muestra el botón de entrada
+   document.getElementById('contenedorBotonEntrada').style.display = 'flex';
+   // Oculta el botón de salida
+   document.querySelector('.botonSalida').style.display = 'none';
+   // Muestra los textos de h1 y h2
+   document.querySelector('.contenedor-textos').style.display = 'block';
+});
+
