@@ -84,3 +84,25 @@ document.querySelector('.button-salida').addEventListener('click', function() {
    document.querySelector('.contenedor-textos').style.display = 'block';
 });
 
+/* MODE  */
+
+document.addEventListener('DOMContentLoaded', function() {
+   const switchElement = document.getElementById('input');
+   switchElement.addEventListener('change', function() {
+       if(this.checked) {
+           // Aplicar tema claro
+           document.body.classList.add('body-light');
+           document.getElementById('botonEntrada').classList.add('boton-circular-light');
+           document.querySelector('.button-salida').classList.add('button-salida-light');
+           document.querySelector('.efecto-typing').classList.add('efecto-typing-light');
+           document.querySelector('.titulo-inicio').classList.add('titulo-inicio-light');
+       } else {
+           // Revertir al tema oscuro
+           document.body.classList.remove('body-light');
+           document.getElementById('botonEntrada').classList.remove('boton-circular-light');
+           document.querySelector('.button-salida').classList.remove('button-salida-light');
+           document.querySelector('.efecto-typing').classList.remove('efecto-typing-light');
+           document.querySelector('.titulo-inicio').classList.remove('titulo-inicio-light');
+       }
+   });
+});

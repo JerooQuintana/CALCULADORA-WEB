@@ -13,6 +13,13 @@ body {
     display: grid;
     place-items: center;
 }
+.body-light {
+    min-height: 100vh;
+    background-color: rgb(237, 214, 221);
+    display: grid;
+    place-items: center;
+}
+/** TEXTOS DE INICIO   */ 
 .contenedor-textos {
     position: absolute;
     top: 20px;
@@ -22,7 +29,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
 }
-
 .titulo-inicio {
     font-family: "Kode Mono", monospace;
     font-optical-sizing: auto;
@@ -32,6 +38,15 @@ body {
     color: #fff;
     text-shadow: 1px 1px rgb(74, 143, 247), 2px 2px rgb(6, 63, 138), 3px 3px rgb(8, 93, 204);
 }
+.titulo-inicio-light {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 60px;
+    margin-bottom: 10px; /* Añade un pequeño margen entre el título y el texto */
+    color: #100f0f;
+    text-shadow: 1px 1px rgb(247, 74, 100), 2px 2px rgb(138, 6, 30), 3px 3px rgb(204, 8, 37);
+}
 
 .efecto-typing {
     font-family: 'Kode Mono', monospace; /* Asegúrate de que la fuente sea monoespaciada */
@@ -39,6 +54,17 @@ body {
     color: #fff;
     text-shadow: 1px 1px rgb(74, 143, 247), 2px 2px rgb(6, 63, 138), 3px 3px rgb(8, 93, 204);
     border-right: .15em solid white; /* Simula el cursor de escritura */
+    white-space: nowrap; /* Evita que el texto se envuelva a una nueva línea */
+    width: 0; /* Comienza con el contenedor del texto completamente cerrado */
+    animation: typing 8s steps(40, end) infinite, /* Ajusta la duración según necesites */
+              blink-caret .75s step-end infinite; /* Animación del cursor */
+}
+.efecto-typing-light {
+    font-family: 'Kode Mono', monospace; /* Asegúrate de que la fuente sea monoespaciada */
+    overflow: hidden; /* Oculta el texto que "sale" del contenedor */
+    color: #0b0b0b;
+    text-shadow: 1px 1px rgb(247, 74, 109), 2px 2px rgb(138, 6, 32), 3px 3px rgb(204, 8, 28);
+    border-right: .15em solid rgb(3, 3, 3); /* Simula el cursor de escritura */
     white-space: nowrap; /* Evita que el texto se envuelva a una nueva línea */
     width: 0; /* Comienza con el contenedor del texto completamente cerrado */
     animation: typing 8s steps(40, end) infinite, /* Ajusta la duración según necesites */
@@ -57,6 +83,60 @@ body {
 }
 
 
+/** MODE DARK AND LIGHT */ 
+.mode {
+    position: fixed; /* Esto hace que el contenedor del switch sea fijo en la pantalla */
+    top: 20px; /* Distancia desde el top del viewport */
+    right: 20px; /* Distancia desde el right del viewport */
+    z-index: 100; /* Asegura que el switch esté sobre otros elementos */
+}
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #9a86fd;
+    border-radius: 34px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.slider::before{
+    position: absolute;
+    content: ' ';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+input:checked+ .slider{
+    background-color: #ffdb70;
+}
+input:focus+ .slider{
+    box-shadow: 0 0 1px #ffdb70;
+}
+input:checked+ .slider::before{
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
 
 
 /* Estilos de la calculadora */
@@ -71,6 +151,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: .5rem;
 }
+
 
 /* Estilo de la pantalla de la calculadora */
 .pantalla {
@@ -142,11 +223,30 @@ body {
     animation: glowing-border 5s linear infinite;
     
 }
-
 .boton-circular:hover {
     transform: scale(1.1);
 }
+.boton-circular-light {
+    position: relative;
+    overflow: hidden;
+    background: rgb(245, 244, 244);
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: rgb(4, 4, 4);
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 40px;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(242, 39, 55, 0.7);
+    animation: glowing-border-light 5s linear infinite;
+    
+}
 
+.boton-circular-light:hover {
+    transform: scale(1.1);
+}
+/** BOTON DE SALIDA*/
 .button-salida {
     position: relative;
     overflow: hidden;
@@ -163,6 +263,24 @@ body {
     animation: glowing-border 5s linear infinite;
 }
 .button-salida:hover{
+    transform: scale(1.1);
+}
+.button-salida-light {
+    position: relative;
+    overflow: hidden;
+    background: rgb(249, 248, 248);
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: rgb(5, 4, 4);
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(242, 39, 55, 0.7);
+    animation: glowing-border-light 5s linear infinite;
+}
+.button-salida-light:hover{
     transform: scale(1.1);
 }
 
@@ -187,5 +305,28 @@ body {
             0 0 30px rgba(30, 108, 253, 0.5),
             0 0 40px rgba(65, 92, 245, 0.5),
             0 0 50px rgba(1, 13, 83, 0.5)
+    }
+}
+@keyframes glowing-border-light {
+    0%, 100% {
+        box-shadow:
+            0 0 10px rgba(255, 0, 38, 0.7),
+            0 0 20px rgba(253, 30, 64, 0.7),
+            0 0 30px rgba(245, 65, 65, 0.7),
+            0 0 40px rgba(83, 1, 12, 0.7)
+    }
+    25%, 75% {
+        box-shadow:
+        0 0 10px rgba(255, 0, 38, 0.7),
+        0 0 20px rgba(253, 30, 64, 0.7),
+        0 0 30px rgba(245, 65, 65, 0.7),
+        0 0 40px rgba(83, 1, 12, 0.7)
+    }
+    50% {
+        box-shadow:
+        0 0 10px rgba(255, 0, 38, 0.7),
+        0 0 20px rgba(253, 30, 64, 0.7),
+        0 0 30px rgba(245, 65, 65, 0.7),
+        0 0 40px rgba(83, 1, 12, 0.7)
     }
 }
