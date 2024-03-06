@@ -89,13 +89,23 @@ document.querySelector('.button-salida').addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', function() {
    const switchElement = document.getElementById('input');
    switchElement.addEventListener('change', function() {
-       if(this.checked) {
+       // Seleccionar todos los elementos que necesitan cambiar de estilo
+       const botones = document.querySelectorAll('.btn'); // Selecciona todos los botones
+
+       if (this.checked) {
            // Aplicar tema claro
            document.body.classList.add('body-light');
            document.getElementById('botonEntrada').classList.add('boton-circular-light');
            document.querySelector('.button-salida').classList.add('button-salida-light');
            document.querySelector('.efecto-typing').classList.add('efecto-typing-light');
            document.querySelector('.titulo-inicio').classList.add('titulo-inicio-light');
+           document.querySelector('.calculadora').classList.add('calculadora-light');
+           document.querySelector('.pantalla').classList.add('pantalla-light'); // Añadir estilo claro a la pantalla
+
+           // Aplicar la clase btn-light a todos los botones
+           botones.forEach(boton => {
+               boton.classList.add('btn-light');
+           });
        } else {
            // Revertir al tema oscuro
            document.body.classList.remove('body-light');
@@ -103,6 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
            document.querySelector('.button-salida').classList.remove('button-salida-light');
            document.querySelector('.efecto-typing').classList.remove('efecto-typing-light');
            document.querySelector('.titulo-inicio').classList.remove('titulo-inicio-light');
+           document.querySelector('.calculadora').classList.remove('calculadora-light');
+           document.querySelector('.pantalla').classList.remove('pantalla-light'); // Remover estilo claro de la pantalla
+
+           // Remover la clase btn-light de todos los botones
+           botones.forEach(boton => {
+               boton.classList.remove('btn-light');
+           });
        }
    });
 });
